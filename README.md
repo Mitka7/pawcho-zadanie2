@@ -43,7 +43,7 @@ Ulotność maszyn wirtualnych w GitHub Actions wymusiła zastosowanie zewnętrzn
 
 ### c. Test CVE (Trivy) i blokowanie publikacji zagrożonych obrazów
 Obraz trafia do publicznego rejestru (GHCR) tylko w sytuacji braku krytycznych luk bezpieczeństwa. Zrealizowano to poprzez rozdzielenie procesu na dwa niezależne etapy budowania.
-* **Konfiguracja:** Budowany jest lokalny, testowy obraz (`load: true`), który nie jest nigdzie publikowany, a jedynie ładowany do demona Dockera na runnerze. Następnie obraz ten skanowany jest przez skaner Trivy. Dopiero w kolejnym następuje właściwe budowanie multi-arch i eksport.
+* **Konfiguracja:** Budowany jest lokalny, testowy obraz (`load: true`), który nie jest nigdzie publikowany, a jedynie ładowany do demona Dockera na runnerze. Następnie obraz ten skanowany jest przez skaner Trivy (krok 8). Dopiero w kolejnym kroku następuje właściwe budowanie multi-arch i eksport.
 * **Wybór narzędzia:**
   Do realizacji zadania wybrano narzędzie **Trivy** ponieważ:
   1. **Prostota:** Trivy działa bezpośrednio w środowisku CI bez konieczności integrowania zewnętrznych pulpitów analitycznych. Posiada wbudowany parametr `exit-code: '1'`, który automatycznie przerywa cały łańcuch w przypadku wykrycia zadeklarowanych luk (`severity: 'CRITICAL,HIGH'`).
