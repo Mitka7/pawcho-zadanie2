@@ -17,3 +17,11 @@
 ## Zapisanie plików i wysłanie ich na GitHuba
 
 <img width="939" height="614" alt="image" src="https://github.com/user-attachments/assets/9c87cfff-63c3-4b5d-9931-df1941c5a21c" />
+
+##
+
+<img width="945" height="294" alt="image" src="https://github.com/user-attachments/assets/81905a13-cb2c-4709-b316-0a0891875114" />
+
+##
+
+<img width="945" height="586" alt="image" src="https://github.com/user-attachments/assets/96f88ff5-48fd-4c29-8249-f32ee3fd0c3c" />
