@@ -66,12 +66,12 @@ Dla docelowych obrazów w rejestrze `ghcr.io` zastosowano hybrydowy model tagowa
 Dodatkowo celowo zablokowano automatyczne dodawanie domyślnego tagu `latest` (parametr `flavor: latest=false`).
 * **Uzasadnienie:** Stosowanie tagu `latest` w środowiskach produkcyjnych jest uznawane za tzw. antywzorzec (anti-pattern), ponieważ jest to tag mutowalny, co może prowadzić do nieprzewidywalnych wdrożeń i trudności z wycofywaniem zmian. Oparcie architektury na unikalnych skrótach SHA zapewnia pełną niezmienność obrazu i pozwala w ułamku sekundy powiązać działający kontener z konkretnym stanem kodu.
 * **Źródła:**
-  * Niezmienność tagów: (https://docs.docker.com/develop/dev-best-practices/#manage-tags-and-labels)
-  * Antywzorzec tagu latest: [AWS Containers Roadmap: Tag Immutability #180](https://github.com/aws/containers-roadmap/issues/180)
+  * Niezmienność tagów: https://docs.docker.com/develop/dev-best-practices/#manage-tags-and-labels
+  * Antywzorzec tagu latest: https://github.com/aws/containers-roadmap/issues/180
 
 ### Strategia warstw Cache (DockerHub)
 Dla pamięci podręcznej zastosowano w rejestrze stały tag tekstowy `:max` oraz parametr eksportu `mode=max`.
-* **Uzasadnienie architektoniczne:** Zastosowanie parametru `mode=max` wymusza wyeksportowanie warstw ze *wszystkich* pośrednich etapów kompilacji, co maksymalizuje tzw. *cache hits* przy kolejnych uruchomieniach CI. Zastosowanie stałego tagu (`:max`) w docelowym rejestrze zapobiega zjawisku *registry bloat* (zaśmiecaniu repozytorium setkami nieużytecznych tagów poszczególnych warstw), ponieważ system nadpisuje i aktualizuje tylko stare manifesty.
+* **Uzasadnienie:** Zastosowanie parametru `mode=max` wymusza wyeksportowanie warstw ze *wszystkich* pośrednich etapów kompilacji, co maksymalizuje tzw. *cache hits* przy kolejnych uruchomieniach CI. Zastosowanie stałego tagu (`:max`) w docelowym rejestrze zapobiega zjawisku *registry bloat* (zaśmiecaniu repozytorium setkami nieużytecznych tagów poszczególnych warstw), ponieważ system nadpisuje i aktualizuje tylko stare manifesty.
 * **Źródła:**
   * Optymalizacja Cache (mode=max): [Docker Docs: Cache modes](https://docs.docker.com/build/cache/backends/#cache-mode)
 
