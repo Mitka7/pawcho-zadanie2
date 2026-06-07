@@ -49,7 +49,7 @@ Obraz trafia do publicznego rejestru (GHCR) tylko w sytuacji braku krytycznych l
   1. **Prostota:** Trivy działa bezpośrednio w środowisku CI bez konieczności integrowania zewnętrznych pulpitów analitycznych. Posiada wbudowany parametr `exit-code: '1'`, który automatycznie przerywa cały łańcuch w przypadku wykrycia zadeklarowanych luk (`severity: 'CRITICAL,HIGH'`).
   2. **Brak dodatkowych autoryzacji do API:** Docker Scout do zaawansowanej analizy rekomenduje uwierzytelnienie w systemie Docker Desktop/Hub. Trivy skanuje wygenerowany przez runnera lokalny plik z obrazem, co jest znacznie szybszym rozwiązaniem w prostych potokach CI/CD.
   * *Źródła:*
-    * [Trivy Documentation](https://aquasecurity.github.io/trivy-action/)
+    * [Trivy Documentation](https://github.com/aquasecurity/trivy-action)
     * [Docker Documentation](https://docs.docker.com/scout/)
 
 ---
@@ -66,8 +66,8 @@ Dla docelowych obrazów w rejestrze `ghcr.io` zastosowano hybrydowy model tagowa
 Dodatkowo celowo zablokowano automatyczne dodawanie domyślnego tagu `latest` (parametr `flavor: latest=false`).
 * **Uzasadnienie:** Stosowanie tagu `latest` w środowiskach produkcyjnych jest uznawane za tzw. antywzorzec (anti-pattern), ponieważ jest to tag mutowalny, co może prowadzić do nieprzewidywalnych wdrożeń i trudności z wycofywaniem zmian. Oparcie architektury na unikalnych skrótach SHA zapewnia pełną niezmienność obrazu i pozwala w ułamku sekundy powiązać działający kontener z konkretnym stanem kodu.
 * **Źródła:**
-  * Niezmienność tagów: https://docs.docker.com/develop/dev-best-practices/#manage-tags-and-labels
-  * Antywzorzec tagu latest: https://github.com/aws/containers-roadmap/issues/180
+  * Niezmienność tagów: https://github.com/docker/metadata-action#flavor-input
+  * Antywzorzec tagu latest: https://kubernetes.io/docs/concepts/containers/images/
 
 ### Strategia warstw Cache (DockerHub)
 Dla pamięci podręcznej zastosowano w rejestrze stały tag tekstowy `:max` oraz parametr eksportu `mode=max`.
