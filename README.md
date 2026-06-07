@@ -1,0 +1,19 @@
+## Logowanie do GitHub 
+
+<img width="945" height="213" alt="image" src="https://github.com/user-attachments/assets/761b362f-0670-4ee4-8a11-9298c3de6912" />
+
+## Inicjalizacja lokalnego repozytorium
+
+<img width="945" height="92" alt="image" src="https://github.com/user-attachments/assets/19add944-baa2-4962-8f32-d1c69854f62d" />
+
+## Tworzenie repozytorium na GitHub
+
+<img width="945" height="310" alt="image" src="https://github.com/user-attachments/assets/fb42f38b-d4dd-45d7-98ea-b04b25ca9b48" />
+
+## Zarządzanie secretami i zmiennymi
+
+<img width="944" height="281" alt="image" src="https://github.com/user-attachments/assets/ad8313d9-cfdf-4f96-8ae7-5405bcca4b48" />
+
+## Zapisanie plików i wysłanie ich na GitHuba
+
+<img width="939" height="614" alt="image" src="https://github.com/user-attachments/assets/9c87cfff-63c3-4b5d-9931-df1941c5a21c" />
